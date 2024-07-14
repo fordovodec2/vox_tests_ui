@@ -1,0 +1,92 @@
+_______________________ОБЩИЕ ЛОКАТОРЫ___________________________
+locator('.answer') - кнопка ответить, когда появляется входящий вызов
+locator('.timer.f_12_regular') - таймер в блоке, где кнопки ответить и сбросить, когда приходит входящий
+locator('.sidebar-root-item-icon').nth(0) - кнопка Управление ( Administration )
+locator('[href="/Outbound"]') - кнопка "исходящие сценарии" в боковой панели
+
+# Сайдбар(боковая панель) кнопка "Управление"
+locator('.sidebar-root-item-icon svg').nth(0).click()
+# Ожидание, что кнопка "Управление" открыла боковое меню и оно называется "Управление" ( на русском и английском)
+expect(page.locator('.sidebar-drawer', has_text='Управление')).to_be_visible()
+expect(page.locator('.sidebar-drawer', has_text='Administration')).to_be_visible()
+# Сайдбар(боковая панель) кнопка "Рабочее место"
+locator('.sidebar-root-item-icon svg').nth(1).click()
+# Проверка, что элемент agent-ws-tabs( это панелька, где надписи "Мои задачи", "Не назначены") виден на странице. Появляется при открытии "Рабочего места"
+expect(page.locator('.agent-ws-tabs')).to_be_visible()
+# Сайдбар(боковая панель) кнопка "Отчетность"
+locator('.sidebar-root-item-icon svg').nth(2).click()
+# Проверка, что сайд панель "Отчетность" открылась, на русском и английском
+expect(page.locator('.sidebar-drawer', has_text='Reporting')).to_be_visible()
+expect(page.locator('.sidebar-drawer', has_text='Отчетность')).to_be_visible()
+# Сайдбар(боковая панель) кнопка "История"
+locator('.sidebar-root-item-icon svg').nth(3).click()
+# Проверка, что страница История из сайдбара открылась
+expect(page.locator('.call-history')).to_be_visible()
+# Сайдбар(боковая панель) кнопка "Настройка"
+locator('.sidebar-root-item-icon svg').nth(4).click()
+# Проверка, что открылось боковое меню со списком настроек на русском и английском
+expect(page.get_by_text('Setup', exact=True)).to_be_visible()
+expect(page.get_by_text('Настройка', exact=True)).to_be_visible()
+
+____________СТРАНИЦА АВТОРИЗАЦИИ________________
+
+locator("[data-type='accept']") - кнопка "Принять"
+locator("[data-type='acceptRequired']") - Кнопка "принять обязательные"
+locator('[prop="domain"]') - поле ввода домена
+locator('[prop="email"]') - поле ввода почты
+locator('[prop="password"]') - поле ввода пароля
+locator('[href="/registration"]') - кнопка "зарегестрироваться" (надпись)
+locator('.o-auth-btn') - кнопка "Продолжить с гугл"
+locator('[target="_blank"]') - ссылка на политику конфидициальности в блоке с куками
+
+______________ПЛАТФОРМЕННЫЙ СОФТФОН_________________
+
+get_by_role('button', name='Continue') - кнопка 'Continue'
+locator(".sui-icon.sui-arrow-icon") - выпадающий список выбора языка
+locator("li").filter(has_text="English") - выбор английского языка в выпадающем списке
+get_by_role('textbox', name='Username') - поле ввода Username
+get_by_role('textbox', name='Password') - поле ввода Password
+get_by_role('textbox', name='Application name') - поле ввода Application name
+get_by_role('textbox', name='Account name') - поле ввода Account name
+get_by_role('button', name='Sign in') - кнопка Sign in
+expect(self.page.get_by_text('Enter destination', exact=True)).to_be_visible() - ожидание, пока софтфон прогрузится и появится надпись Enter destination
+locator('.take-call') - иконка поднятия трубки
+locator('.close') - иконка отклонить вызов
+locator('#dialing-input') - поле ввода номера телефона
+get_by_role('button', name='Call', exact=True) - кнопка Call
+
+_____________КИТОВЫЙ СОФТФОН___________________
+locator('.sc-icon.sp-button__icon') - иконка софтфона
+locator("header").get_by_role("button").nth(3).click() - иконка кейпада в софтфоне
+locator('.callerid-picker__picked-number').click() - выпадающий список Caller id в софтфоне, в разделе кейпада
+get_by_text("любой номер, который есть на аккануте") - как найти номер, с которого хочешь позвонить, если номер
+уже выбран то нужно добавить nth(1)
+locator('.numpad-view__input') - поле ввода номера, куда хочешь позвонит
+locator('.call-btn__wrapper') - иконка телефона в софтфоне
+locator('.call-dialog__timer.connected') - таймер времени, когда вызов активный
+expect(page.locator('.call-dialog__timer.connected')).to_be_visible() - проверка, что таймер времени, когда вызов активный есть
+
+______________________ИСХОДЯЩИЕ СЦЕНАРИИ______________________________
+locator('.template-gallery-btn__create')- кнопка Добавить сценарий
+locator('.file__more').nth(0) - нажатие на меню три точки, у первого в списке сценария
+locator('.template-gallery-btn__create') - Кнопка Добавить сценарий
+locator('.file__more') - экшн меню три точки ( нужно ставить nth дополнительно)
+locator(".option-popup>li:nth-child(1)")- Нажать на Rename в экшн меню три точки
+locator(".option-popup>li:nth-child(2)") - Нажать на Duplicate в экшн меню три точки
+locator(".option-popup>li:nth-child(3)") - Нажать на Move в экшн меню три точки
+locator(".option-popup>li:nth-child(2)")  - Нажать на Open in new tab в экшн меню три точки
+locator('.option-popup>.is-active-delete') - Нажать на Delete в экшн меню три точки
+locator('.kit-btn.is-default') - кнопка подтверждения удаления сценария
+
+
+_____________________РЕДАКТОР__________________________________
+locator('.editor-panel--logo') - панель где указано название сценария
+get_by_placeholder(" ") - поле, где указано название сценария, которое можно отредактировать
+locator('.editor-logo') - лого редактора, в левом верхнем углу
+get_by_role('textbox') - поле ввода в редакторе, в модальном окне когда публикуем сценарий
+locator('.editor-panel>[type="button"]') - кнопка опубликовать в нижнем левом углу
+get_by_role('textbox') - поле ввода описания в модальном окне при публикации
+locator('.dialog-footer>[type="button"]').nth(0) - кнопка опубликовать в модальнеом окне
+
+
+
