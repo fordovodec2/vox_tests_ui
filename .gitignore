@@ -3,3 +3,4 @@ playwright/.auth
 .env
 state.json
 .idea/
+trace/
