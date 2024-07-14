@@ -1,7 +1,4 @@
 
 playwright/.auth
 .env
-config/preprod.py
-config/prod.py
-config/stand.py
 state.json
