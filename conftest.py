@@ -24,9 +24,12 @@ def login(browser):
 
 @pytest.fixture()
 def context(playwright, login):
-    # browser = playwright.chromium.launch(headless=False, args=["--headless=new"]) - МИКРОФОН !!!! это работает
-    browser = playwright.chromium.launch(headless=False)
+    """Новый режим запуска, экспериментальный в безголом режиме с микро"""
+    browser = playwright.chromium.launch(headless=False, args=["--headless=new"])
     context: BrowserContext = browser.new_context(permissions=["microphone"], storage_state="state.json")
+    """Обычный режим запуска """
+    # browser = playwright.chromium.launch(headless=False)
+    # context: BrowserContext = browser.new_context(permissions=["microphone"], storage_state="state.json")
 
     yield context
     context.close()
