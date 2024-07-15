@@ -4,3 +4,10 @@ playwright/.auth
 state.json
 .idea/
 trace/
+.DS_Store
+        __pycache__/
+        config/__pycache__/
+        pages/.DS_Store
+        pages/__pycache__/
+        test/.DS_Store
+        test/__pycache__/
