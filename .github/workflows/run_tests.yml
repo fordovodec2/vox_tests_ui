@@ -1,0 +1,22 @@
+name: Automated tests stand
+
+on:
+  push
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - name: Install Chromium
+        run: sudo apt-get install chromium-browser
+      - name: Install dependecies
+        run: pip install -r reguirements.txt
+      - name: Run tests
+        run: ENV=stand pytest
