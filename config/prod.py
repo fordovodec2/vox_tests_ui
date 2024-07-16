@@ -2,7 +2,7 @@ import os
 
 new_out_scenario = 'New out scenario'
 new_inb_scenario = 'New inb scenario'
-""" Системные переменные, которые нельзя передавать в гитхаб"""
+
 url = os.getenv('prod_url')
 domain = os.getenv('prod_domain')
 mail = os.getenv('prod_mail')
