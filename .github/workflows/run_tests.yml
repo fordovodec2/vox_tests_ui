@@ -1,7 +1,19 @@
 name: Automated tests stand
 
 on:
-  push
+  workflow_dispatch:
+    inputs:
+      deployment_target:
+        description: Choose target
+        required: true
+        default: stand
+        type: choice
+        options:
+          - stand
+          - preprod
+          - prod
+#on:
+#  push
 
 jobs:
   tests:
